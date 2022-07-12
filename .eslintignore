@@ -1,0 +1,6 @@
+node_modules/
+build/
+coverage/
+angular/src/typings.d.ts
+
+!.prettierrc.json

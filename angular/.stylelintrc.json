@@ -1,0 +1,17 @@
+{
+  "extends": "../.stylelintrc.json",
+  "rules": {
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": ["custom-elements", "default-namespace"]
+      }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ]
+  }
+}

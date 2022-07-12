@@ -1,0 +1,92 @@
+<div class="container mt-4">
+  <div class="row">
+    <table class="table table-striped table-bordered col-lg-4">
+      <thead>
+        <tr>
+          <th>
+            <nav class="navbar navbar-expand-lg header p-2">
+              <img width="30" alt="Bizscrum Logo" src="assets/img/logo_white.png" />
+              <span class="navbar-brand">BizScrum Chrome Extension</span>
+            </nav>
+            <div class="mt-2">
+              <span class="icon-logo_blue"></span>
+              Webhook(s) Configuration
+              <a
+                (click)="onEditCloseItems()"
+                class="text-info float-right remove-icon"
+                title="Update webhook(s)"
+              >
+                <i class="bi bi-{{isEditItems ? 'x' : 'pencil'}}"></i>
+              </a>
+            </div>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="!isEditItems">
+        <tr *ngFor="let control of controls; let i = index">
+          <td *ngIf="control?.name">
+            <i (click)="deleteControl(i)" class="bi bi-x remove-icon"></i> {{control.name}}
+          </td>
+        </tr>
+      </tbody>
+
+      <tbody *ngIf="isEditItems">
+        <tr *ngFor="let control of controls; let i = index">
+          <td class="p-3">
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">Name</div>
+              </div>
+              <input
+                [(ngModel)]="control.name"
+                class="form-control"
+                type="text"
+                name="{{control.name}}"
+                placeholder="Name..."
+                style="margin-right: 10px"
+              />
+              <div class="input-group-prepend">
+                <div class="input-group-text">Url</div>
+              </div>
+              <input
+                [(ngModel)]="control.url"
+                class="form-control w-50"
+                type="text"
+                name="Url"
+                placeholder="Url..."
+              />
+              <div class="input-group-append">
+                <div (click)="deleteControl(i)" class="input-group-text delete">Delete</div>
+              </div>
+            </div>
+            <input
+              [(ngModel)]="control.selected"
+              class="form-control"
+              type="hidden"
+              value="false"
+              name="Selected"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <button
+              *ngIf="controls.length <= 2"
+              class="btn btn-secondary btn-md"
+              type="button"
+              (click)="addControl()"
+              style="margin-right: 10px"
+            >
+              Add More Item
+            </button>
+            <button (click)="onEditCloseItems()" class="btn btn-primary btn-md" type="button">
+              Save Items
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

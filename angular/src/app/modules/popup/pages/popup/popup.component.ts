@@ -86,6 +86,9 @@ export class PopupComponent implements OnInit {
       }
     });
 
+    //refresh notes data
+    this.popupFormData.notes = '';
+
     console.log('submit: ' + JSON.stringify(this.webhooks));
     this.storage.set({ webhooks: JSON.stringify(this.webhooks) });
   }

@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Bizscrum Extension",
+  "name": "Bizscrum Capture",
   "short_name": "Bizscrum Browser Extension",
   "version": "1.0.0",
-  "description": "Bizscrum Extension",
+  "description": "Bizscrum Capture",
   "incognito": "split",
   "options_page": "index.html?#/options",
   "icons": {

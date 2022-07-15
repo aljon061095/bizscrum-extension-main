@@ -9,7 +9,6 @@ export class WebhookService {
     constructor(private http: HttpClient,
         private spinnerService: NgxSpinnerService) { }
 
-    
     getWebhookUrl(url: string): any {        
         this.http.get<any>(url).subscribe(data => {
             return data;
@@ -17,9 +16,7 @@ export class WebhookService {
     }
 
     sendWebhook(formData: PopupFormData): any {
-
         const popupFormData = {
-            //text: '`URL:`' + formData.tabUrl + '\n`Notes:`' + formData.notes,
             cards: [{
                 header: {
                     title: formData.tabTitle,
